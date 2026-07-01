@@ -17,3 +17,8 @@ Site estático que organiza uma trilha de estudos em Análise de Dados: lista de
 
 **Abrir diretamente**  
 - Abra `index.html` no navegador.
+
+## Como fazer o commit / push para o repositório
+- git add .
+- git commit -m "Mensagem de commit"
+- git push origin main
