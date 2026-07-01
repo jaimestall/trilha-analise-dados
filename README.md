@@ -9,8 +9,7 @@ Site estático que organiza uma trilha de estudos em Análise de Dados: lista de
 
 - `index.html` — marcação principal e modal.  
 - `style.css` — estilos e layout refinado.  
-- `app.js` — lógica: renderização, modal, export/import, `localStorage`.  
-- `assets/` (opcional) — imagens, fontes e outros recursos.
+- `app.js` — lógica: renderização, modal, export/import, `localStorage`.
 
 ---
 
@@ -18,9 +17,3 @@ Site estático que organiza uma trilha de estudos em Análise de Dados: lista de
 
 **Abrir diretamente**  
 - Abra `index.html` no navegador.
-
-**Servir com Python (recomendado para testes locais)**  
-```bash
-# Python 3
-python -m http.server 8000
-# abra http://localhost:8000
