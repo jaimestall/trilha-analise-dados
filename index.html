@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trilha Análise de Dados</title>
+
+  <!-- Tailwind (utilitários rápidos) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS customizado -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container mx-auto p-6">
+    <header class="site-header mb-6">
+      <div class="header-row">
+        <div class="header-left">
+          <h1 class="site-title">Trilha de Estudo: <span class="accent">Análise de Dados</span></h1>
+          <p class="site-sub">Do zero ao avançado — organize seu aprendizado.</p>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-wrap">
+            <input id="search" type="search" placeholder="Buscar tópico..." class="search-input" />
+          </div>
+
+          <div class="header-buttons">
+            <a class="btn btn-primary" href="#" id="open-github" title="Ver no GitHub">Ver no GitHub</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="app">
+      <div id="controls" class="mb-4"></div>
+      <section id="topics" class="space-y-4"></section>
+    </main>
+
+    <footer class="mt-8 text-sm text-muted">
+      <div class="flex items-center justify-between">
+        <div>Feito com ♥ — seu projeto de estudo</div>
+        <div class="flex items-center gap-3">
+          <button id="export-btn" class="btn">Exportar</button>
+          <button id="import-btn" class="btn">Importar</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal de detalhes do tópico -->
+  <div id="topic-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel">
+      <header class="modal-header">
+        <div>
+          <h3 id="modal-title" class="modal-title">Título do tópico</h3>
+          <p id="modal-level" class="modal-sub text-sm"></p>
+        </div>
+        <div class="modal-header-actions">
+          <button id="modal-close" class="icon-btn" aria-label="Fechar">
+            <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.9a1 1 0 0 0 1.41-1.41L13.41 12l4.9-4.89a1 1 0 0 0 0-1.4z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="modal-body">
+        <p id="modal-desc" class="text-muted"></p>
+
+        <div class="modal-section">
+          <h4 class="section-title">Recursos</h4>
+          <ul id="modal-links" class="modal-links"></ul>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="section-title">Exercício prático</h4>
+          <p id="modal-exercise" class="text-muted"></p>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="section-title">Notas e prioridade</h4>
+          <textarea id="modal-notes" rows="4" class="notes-input" placeholder="Escreva suas notas, dúvidas ou lembretes..."></textarea>
+
+          <div class="notes-row harmonized">
+            <div class="priority-wrap harmonized-left">
+              <label for="modal-priority" class="text-sm">Prioridade</label>
+              <select id="modal-priority" class="select-input">
+                <option value="">Nenhuma</option>
+                <option value="alta">Alta</option>
+                <option value="média">Média</option>
+                <option value="baixa">Baixa</option>
+              </select>
+              <p class="notes-help text-sm text-muted">Defina prioridade para organizar sua revisão.</p>
+            </div>
+
+            <div class="notes-actions harmonized-right">
+              <label class="checkbox-wrap">
+                <input id="modal-complete" type="checkbox" />
+                <span class="checkbox-label">Concluído</span>
+              </label>
+              <button id="modal-save-note" class="btn btn-primary">Salvar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <div class="hint text-sm text-muted">Use ← → para navegar entre tópicos</div>
+          <div class="modal-nav">
+            <button id="modal-prev" class="btn-ghost" aria-label="Anterior">
+              <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+              Anterior
+            </button>
+            <button id="modal-next" class="btn-ghost" aria-label="Próximo">
+              Próximo
+              <svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
